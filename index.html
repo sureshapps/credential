@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- === SEO & PWA === -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Devx – merging design & development for exciting apps. Explore 1000+ designs, 200+ websites, 20+ apps and verified certificates.">
+  <meta name="keywords" content="Devx, design, development, apps, portfolio, certificates, UI, UX, frontend, backend">
+  <meta name="author" content="Devx">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Devx – Design × Development">
+  <meta property="og:description" content="Showcasing 1000+ designs, 200+ websites, 20+ apps and verified certificates.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://picsum.photos/600/600?random=devx">
+  <meta property="og:url" content="https://suresh.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://suresh.app">
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.cdnfonts.com/css/callahan-2" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/bruno-ace-2" rel="stylesheet">
+  <link rel='stylesheet' href='https://codepen.io/nullobject/pen/XWxRBW.css'>
+  <script src='https://codepen.io/nullobject/pen/XWxRBW.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta name="theme-color" content="#667eea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Devx">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <title>myCERTS</title>
+  <style>
+    :root {
+      --ibio: #111111;
+      --bg-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3Cfilter id=%22b%22 x=%22-200%25%22 y=%22-200%25%22 width=%22500%25%22 height=%22500%25%22%3E%3CfeGaussianBlur in=%22SourceGraphic%22 stdDeviation=%2220%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C/svg%3E");
+      --bg: #ffffff;
+      --text: #222;
+      --myname: #df0000;
+      --sub: #555;
+      --stat: #DE4500;
+      --border: #e0e0e0;
+      --hue2: 222;
+      --hue1: 255;
+      --card: #ffffff;
+      --myc: #ffffff;
+      --stroke: rgba(0,0,0,0.08);
+      --radius: 14px;
+      --shadow: 0 4px 18px rgba(0,0,0,0.06);
+      --bordercolor: hsl(var(--hue2), 12%, 20%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background .3s, color .3s;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    button { background: none; border: none; color: inherit; cursor: pointer; }
+
+   /* ---------- Splash Screen ---------- */
+#splash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffffff 20%, #fef9f3 60%, #f4e6c1 100%);
+  z-index: 9999;
+  animation: glowBg 3s infinite alternate;
+}
+
+.splash-logo {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.5))
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.3));
+  animation: logoGlow 2.5s ease-in-out infinite alternate;
+}
+
+.loading-text {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #c09b00;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 210, 100, 0.6);
+  letter-spacing: 1px;
+}
+
+@keyframes glowBg {
+  from { background: radial-gradient(circle at center, #fff 20%, #faf3e0 80%); }
+  to { background: radial-gradient(circle at center, #fff 20%, #f9e7b5 90%); }
+}
+
+@keyframes logoGlow {
+  from { filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.3)) drop-shadow(0 0 20px rgba(255, 204, 0, 0.2)); }
+  to { filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.7)) drop-shadow(0 0 40px rgba(255, 204, 0, 0.4)); }
+}
+
+#splash.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px;
+      background: linear-gradient(315deg, #FFAA00 40%, #FF5800 20%, #ff0000 100%);
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--myc);
+      z-index: 1;
+      backdrop-filter: blur(15px);
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      font-family: 'Bruno Ace', sans-serif;
+    }
+
+    /* ---------- Info ---------- */
+    .info {
+      display: flex;
+      gap: 20px;
+      padding: 30px 20px;
+      flex-wrap: wrap;
+      background: #eaf9e7;
+      background-repeat: repeat;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+    }
+    .avatar {
+      width: 100px;
+      height: 210px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--sub);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      padding: 9px;
+    }
+
+    /* ---------- Theme removed: no dark-mode blocks present ---------- */
+
+    /* rest of CSS kept intact (grids, cards, popup, tabs, etc.) */
+    .details { flex: 1; min-width: 220px; text-shadow: var(--shadow); }
+    .details h2 { font-family: 'Callahan', sans-serif; color: var(--myname); letter-spacing: 3px; font-size: 30px; margin-bottom: 6px; text-shadow: var(--shadow); }
+    .details .stats { display:flex; gap:14px; margin:2px 0; font-size:16px; text-shadow: var(--shadow); color: var(--stat); }
+    .details .stats span { font-weight:600; text-shadow: var(--shadow); color: var(--stat); }
+    .details .bio { margin-top:12px; font-size:12px; line-height:1.1; color: var(--ibio); text-shadow: var(--shadow); }
+
+    .tabs { align-items: center; width:100%; top:0; left:0; display:flex; background: linear-gradient(135deg, rgba(255,255,255,0.25) 100%, rgba(255,255,255,0.05) 0%); backdrop-filter: blur(5px); border-top:1px solid var(--border); cursor:pointer; transform-style:preserve-3d; transform: rotateX(5deg); transition: transform .2s ease-in; box-shadow: 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001; }
+    .tabs button { flex:1; padding:14px 0; font-size:20px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; position:relative; color:#696969; transition: color .2s; }
+    .tabs button.active { color: var(--myname); transform: translateZ(-8px) scaleY(0.94); box-shadow: inset 0 0 40px rgba(255,255,255,0.3), inset 0 -5px 15px rgba(0,0,0,0.1); }
+
+    .grid-wrapper { flex:5; overflow-y:auto; padding:12px 20px 20px; }
+    .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+    .thumb-card { position:relative; width:100%; aspect-ratio:1;border: 4px solid transparent;        /* keep border thickness */
+  border-radius: 10px;                  /* rounded corners */
+
+  background: 
+    linear-gradient(#000000, #000000) padding-box,   /* inner background */
+    linear-gradient(315deg, #FFAA00 40%, #FF5800 20%, #ff0000 100%) border-box; /* gradient border */
+  
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+    .thumb-card:hover { transform: scale(1.04); box-shadow: var(--shadow); }
+    .thumb-card img { width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition: opacity .3s; }
+    .thumb-card img.loaded { opacity:1; }
+
+    #popup { position: fixed; inset:0; background: rgba(0,0,0,.85); z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+    #popup img { max-width:90vw; max-height:90vh; border-radius: var(--radius); }
+    #popup .caption { position:absolute; bottom:30px; left:30px; background: rgba(0,0,0,.55); color:#fff; padding:8px 16px; border-radius:20px; font-size:15px; backdrop-filter: blur(4px); }
+    #popup .close { position:absolute; top:20px; right:24px; font-size:36px; color:#fff; cursor:pointer; line-height:1; }
+
+    footer { text-align:center; padding:18px 20px; font-size:13px; color: var(--sub); border-top:1px solid var(--border); }
+
+    .hidden { display:none !important; }
+
+  </style>
+</head>
+<body>
+<!-- ---------- Splash Screen ---------- -->
+<div id="splash">
+  <img src="a9.png" alt="Suresh Certification Logo" class="splash-logo">
+  <span class="loading-text">Loading your certifications...</span>
+</div>
+  <!-- ---------- Header ---------- -->
+  <header>
+    <h1>&nbsp;&nbsp;myCERTS</h1>
+  </header>  <!-- ---------- Info Section ---------- -->
+  <section class="info">
+    <img src="me.png" alt="avatar" class="avatar">
+    <div class="details">
+      <h2>Suresh Kaleyannan</h2>
+      <div class="stats">
+        <div><span>10k+</span> Design</div>
+        <div><span>500+</span> Development</div>
+        <div><span>15+</span> Years</div>
+      </div>
+      <div class="bio">
+        <strong>ACHIEVEMENTS & CREDENTIALS</strong><br><br>
+        Explore my professional achievements and certifications, showcasing my dedication to continuous learning and skill development. This pageant highlights my qualifications across various fields, providing verified credentials that reflect my expertise and commitment to growth.
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Tabs ---------- -->
+  <div class="tabs">
+    <button class="active" data-tab="online"><i class="fa fa-certificate"></i></button>
+    <button data-tab="institute"><i class="fa fa-university" aria-hidden="true"></i></button>
+  </div>
+
+  <!-- ---------- Grids ---------- -->
+  <div class="grid-wrapper">
+    <div class="grid" id="all"></div>
+    <div class="grid hidden" id="institute"></div>
+    <div class="grid hidden" id="online"></div>
+  </div>
+
+  <!-- ---------- Popup ---------- -->
+  <div id="popup">
+    <span class="close">&times;</span>
+    <img src="" alt="popup">
+    <div class="caption"></div>
+  </div>
+
+  <!-- ---------- Footer ---------- -->
+  <footer>
+    &copy; 2024 Devx. All rights reserved.
+  </footer>
+
+  <script>
+    /* ---------- helpers ---------- */
+    const captions = [
+      "React Native certificate – 2023", "UI/UX bootcamp completion", "Advanced CSS graduate",
+      "JavaScript immersive", "Figma mastery badge", "Flutter workshop",
+      "Python for designers", "Adobe XD credential", "Node.js academy",
+      "Full-stack honor", "Vue.js certification", "Sketch pro course"
+    ];
+    const gradients = [
+      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+      "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
+      "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
+      "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+      "linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%)"
+    ];
+    const randomGrad = () => gradients[Math.floor(Math.random() * gradients.length)];
+    const randomCap = () => captions[Math.floor(Math.random() * captions.length)];
+
+    /* ---------- Splash ---------- */
+    const splash = document.getElementById("splash");
+if (splash) window.addEventListener("load", () => setTimeout(() => splash.classList.add("hide"), 2000));
+
+    /* ---------- Grid Builder ---------- */
+    const popup = document.getElementById("popup");
+    const popupImg = popup.querySelector("img");
+    const popupCap = popup.querySelector(".caption");
+    const close = popup.querySelector(".close");
+
+    function createCard(gridId, count, seedPrefix) {
+      const grid = document.getElementById(gridId);
+      for (let i = 1; i <= count; i++) {
+        const wrap = document.createElement("div");
+        wrap.className = "thumb-card";
+        wrap.dataset.caption = randomCap();
+        wrap.dataset.seed = `${seedPrefix}${i}`;
+        wrap.style.background = randomGrad();
+
+        const img = document.createElement("img");
+        img.dataset.src = `images/${seedPrefix}${i}.jpg`; // use your own images
+        img.alt = `thumb ${seedPrefix}${i}`;
+        img.className = "lazy";
+
+        wrap.appendChild(img);
+        grid.appendChild(wrap);
+      }
+    }
+
+    createCard("all", 26, "all");
+    createCard("institute", 6, "inst");
+    createCard("online", 20, "onc");
+
+    /* ---------- Lazy Load ---------- */
+    const imageObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.onload = () => img.classList.add("loaded");
+          obs.unobserve(img);
+        }
+      });
+    }, { rootMargin: "200px" });
+    document.querySelectorAll(".lazy").forEach(img => imageObserver.observe(img));
+
+    /* ---------- Tabs ---------- */
+    const tabs = document.querySelectorAll(".tabs button");
+    const grids = document.querySelectorAll(".grid");
+
+    function activateTab(tabId) {
+      tabs.forEach(b => b.classList.remove("active"));
+      grids.forEach(g => g.classList.add("hidden"));
+      const btn = document.querySelector(`.tabs button[data-tab="${tabId}"]`);
+      const grid = document.getElementById(tabId);
+      if (btn && grid) {
+        btn.classList.add("active");
+        grid.classList.remove("hidden");
+        localStorage.setItem("activeTab", tabId);
+      }
+    }
+
+    tabs.forEach(b => b.addEventListener("click", () => activateTab(b.dataset.tab)));
+
+    const lastTab = localStorage.getItem("activeTab") || "onc";
+    activateTab(lastTab);
+
+    /* ---------- Popup ---------- */
+    document.body.addEventListener("click", e => {
+      const card = e.target.closest(".thumb-card");
+      if (card) {
+        popupImg.src = card.querySelector("img").src;
+        popupCap.textContent = card.dataset.caption;
+        popup.style.display = "flex";
+      }
+    });
+    close.onclick = () => popup.style.display = "none";
+    popup.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
+  </script>
+</body>
+</html>
