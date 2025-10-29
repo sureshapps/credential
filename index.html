@@ -226,7 +226,8 @@ overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-
   <!-- ---------- Grids ---------- -->
   <div class="grid-wrapper">
     <div class="grid" id="all"></div>
-    <div class="grid hidden" id="institute"></div>
+      <div class="grid active" id="institute"></div>
+  
     <div class="grid hidden" id="online"></div>
   </div>
 
@@ -239,7 +240,7 @@ overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-
 
   <!-- ---------- Footer ---------- -->
   <footer>
-    &copy; 2024 Devx. All rights reserved.
+    &copy; 2024 Suresh. All rights reserved.
   </footer>
 
   <script>
@@ -267,6 +268,7 @@ overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-
     const splash = document.getElementById("splash");
 if (splash) window.addEventListener("load", () => setTimeout(() => splash.classList.add("hide"), 2000));
 
+    
     /* ---------- Grid Builder ---------- */
     const popup = document.getElementById("popup");
     const popupImg = popup.querySelector("img");
