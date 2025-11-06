@@ -61,51 +61,6 @@
 
     button { background: none; border: none; color: inherit; cursor: pointer; }
 
-   /* ---------- Splash Screen ---------- */
-#splash {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #ffffff 20%, #fef9f3 60%, #f4e6c1 100%);
-  z-index: 9999;
-  animation: glowBg 3s infinite alternate;
-}
-
-.splash-logo {
-  width: 180px;
-  height: auto;
-  filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.5))
-          drop-shadow(0 0 40px rgba(255, 215, 0, 0.3));
-  animation: logoGlow 2.5s ease-in-out infinite alternate;
-}
-
-.loading-text {
-  margin-top: 18px;
-  font-size: 18px;
-  color: #c09b00;
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(255, 210, 100, 0.6);
-  letter-spacing: 1px;
-}
-
-@keyframes glowBg {
-  from { background: radial-gradient(circle at center, #fff 20%, #faf3e0 80%); }
-  to { background: radial-gradient(circle at center, #fff 20%, #f9e7b5 90%); }
-}
-
-@keyframes logoGlow {
-  from { filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.3)) drop-shadow(0 0 20px rgba(255, 204, 0, 0.2)); }
-  to { filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.7)) drop-shadow(0 0 40px rgba(255, 204, 0, 0.4)); }
-}
-
-#splash.hide {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.8s ease;
-}
     /* ---------- Header ---------- */
     header {
       display: flex;
@@ -192,11 +147,7 @@ overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-
   </style>
 </head>
 <body>
-<!-- ---------- Splash Screen ---------- -->
-<div id="splash">
-  <img src="a9.png" alt="Suresh Certification Logo" class="splash-logo">
-  <span class="loading-text">Loading your certifications...</span>
-</div>
+
   <!-- ---------- Header ---------- -->
   <header>
     <h1>&nbsp;&nbsp;myCERTS</h1>
@@ -264,9 +215,6 @@ overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-
     const randomGrad = () => gradients[Math.floor(Math.random() * gradients.length)];
     const randomCap = () => captions[Math.floor(Math.random() * captions.length)];
 
-    /* ---------- Splash ---------- */
-    const splash = document.getElementById("splash");
-if (splash) window.addEventListener("load", () => setTimeout(() => splash.classList.add("hide"), 2000));
 
     
     /* ---------- Grid Builder ---------- */
