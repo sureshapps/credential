@@ -21,31 +21,31 @@
   <link rel='stylesheet' href='https://codepen.io/nullobject/pen/XWxRBW.css'>
   <script src='https://codepen.io/nullobject/pen/XWxRBW.js'></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <meta name="theme-color" content="#667eea">
+  <meta name="theme-color" content="#1a1a1a">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Devx">
   <link rel="apple-touch-icon" href="icon-192.png">
 
   <title>myCERTS</title>
   <style>
     :root {
-      --ibio: #111111;
-      --bg-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3Cfilter id=%22b%22 x=%22-200%25%22 y=%22-200%25%22 width=%22500%25%22 height=%22500%25%22%3E%3CfeGaussianBlur in=%22SourceGraphic%22 stdDeviation=%2220%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C/svg%3E");
-      --bg: #ffffff;
-      --text: #222;
-      --myname: #df0000;
-      --sub: #555;
-      --stat: #DE4500;
-      --border: #e0e0e0;
+      --ibio: #e0e0e0;
+      --bg-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3Cfilter id=%22b%22 x=%22-200%25%22 y=%22-200%25%22 width=%22500%25%22 height=%22500%25%22%3E%3CfeGaussianBlur in=%22SourceGraphic%22 stdDeviation=%2220%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath fill=%22%23121212%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C/svg%3E");
+      --bg: #121212;
+      --text: #e0e0e0;
+      --myname: #ff4d4d;
+      --sub: #aaaaaa;
+      --stat: #ff6b35;
+      --border: #333333;
       --hue2: 222;
       --hue1: 255;
-      --card: #ffffff;
+      --card: #1e1e1e;
       --myc: #ffffff;
-      --stroke: rgba(0,0,0,0.08);
+      --stroke: rgba(255,255,255,0.08);
       --radius: 14px;
-      --shadow: 0 4px 18px rgba(0,0,0,0.06);
-      --bordercolor: hsl(var(--hue2), 12%, 20%);
+      --shadow: 0 4px 18px rgba(0,0,0,0.3);
+      --bordercolor: hsl(var(--hue2), 12%, 60%);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -68,7 +68,7 @@
       justify-content: space-between;
       padding: 9px;
       background: linear-gradient(315deg, #FFAA00 40%, #FF5800 20%, #ff0000 100%);
-      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--myc);
@@ -88,7 +88,7 @@
       gap: 20px;
       padding: 30px 20px;
       flex-wrap: wrap;
-      background: #eaf9e7;
+      background: #1a2a1a;
       background-repeat: repeat;
       background-image: var(--bg-image);
       background-size: cover;
@@ -101,12 +101,10 @@
       border-radius: 10px;
       object-fit: cover;
       border: 1px solid var(--sub);
-      background: #ffffff;
+      background: #2a2a2a;
       box-shadow: var(--shadow);
       padding: 9px;
     }
-
-    /* ---------- Theme removed: no dark-mode blocks present ---------- */
 
     /* rest of CSS kept intact (grids, cards, popup, tabs, etc.) */
     .details { flex: 1; min-width: 220px; text-shadow: var(--shadow); }
@@ -115,9 +113,9 @@
     .details .stats span { font-weight:600; text-shadow: var(--shadow); color: var(--stat); }
     .details .bio { margin-top:12px; font-size:12px; line-height:1.1; color: var(--ibio); text-shadow: var(--shadow); }
 
-    .tabs { align-items: center; width:100%; top:0; left:0; display:flex; background: linear-gradient(135deg, rgba(255,255,255,0.25) 100%, rgba(255,255,255,0.05) 0%); backdrop-filter: blur(5px); border-top:1px solid var(--border); cursor:pointer; transform-style:preserve-3d; transform: rotateX(5deg); transition: transform .2s ease-in; box-shadow: 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001; }
-    .tabs button { flex:1; padding:14px 0; font-size:20px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; position:relative; color:#696969; transition: color .2s; }
-    .tabs button.active { color: var(--myname); transform: translateZ(-8px) scaleY(0.94); box-shadow: inset 0 0 40px rgba(255,255,255,0.3), inset 0 -5px 15px rgba(0,0,0,0.1); }
+    .tabs { align-items: center; width:100%; top:0; left:0; display:flex; background: linear-gradient(135deg, rgba(30,30,30,0.25) 100%, rgba(30,30,30,0.05) 0%); backdrop-filter: blur(5px); border-top:1px solid var(--border); cursor:pointer; transform-style:preserve-3d; transform: rotateX(5deg); transition: transform .2s ease-in; box-shadow: 7px 7px 20px 0px rgba(0,0,0,0.5), 4px 4px 5px 0px rgba(0,0,0,0.3); }
+    .tabs button { flex:1; padding:14px 0; font-size:20px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; position:relative; color:#aaaaaa; transition: color .2s; }
+    .tabs button.active { color: var(--myname); transform: translateZ(-8px) scaleY(0.94); box-shadow: inset 0 0 40px rgba(30,30,30,0.3), inset 0 -5px 15px rgba(0,0,0,0.3); }
 
     .grid-wrapper { flex:5; overflow-y:auto; padding:12px 20px 20px; }
     .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
@@ -130,14 +128,14 @@
   
   background-clip: padding-box, border-box;
   background-origin: border-box;
-overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+overflow:hidden; cursor:pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
     .thumb-card:hover { transform: scale(1.04); box-shadow: var(--shadow); }
     .thumb-card img { width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition: opacity .3s; }
     .thumb-card img.loaded { opacity:1; }
 
-    #popup { position: fixed; inset:0; background: rgba(0,0,0,.85); z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
-    #popup img { max-width:90vw; max-height:90vh; border-radius: var(--radius); }
-    #popup .caption { position:absolute; bottom:30px; left:30px; background: rgba(0,0,0,.55); color:#fff; padding:8px 16px; border-radius:20px; font-size:15px; backdrop-filter: blur(4px); }
+    #popup { position: fixed; inset:0; background: rgba(0,0,0,.95); z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+    #popup img { max-width:90vw; max-height:90vh; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+    #popup .caption { position:absolute; bottom:30px; left:30px; background: rgba(0,0,0,.75); color:#fff; padding:8px 16px; border-radius:20px; font-size:15px; backdrop-filter: blur(4px); }
     #popup .close { position:absolute; top:20px; right:24px; font-size:36px; color:#fff; cursor:pointer; line-height:1; }
 
     footer { text-align:center; padding:18px 20px; font-size:13px; color: var(--sub); border-top:1px solid var(--border); }
